@@ -1,9 +1,10 @@
 from typing_extensions import Self
 
 class TableController:
-    def __init__(self: Self, classInstance, table_name: str, variables: dict):
+    def __init__(self: Self, classInstance: type, table_name: str, variables: dict):
         self.table_name: str = table_name
         self.variables = variables
+        self.class_instance = classInstance
         self.createTable()
         #gunanya untuk Alter Table, Delete, Select, Dll
 
@@ -15,7 +16,7 @@ class TableController:
         """
         self.executeSql(query)
 
-    def selectOne(self, select: str = "*", where: dict = {}) -> :
+    def selectOne(self, select: str = "*", where: dict = {}):
         query = f'SELECT {select} FROM {self.table_name}'
         self.executeSql(query)
 
@@ -51,4 +52,7 @@ class Table:
 
     def getVariables(self) -> Self:
         return vars(self)
+
+    def toimport(self) -> Self:
+        return Self()
 
