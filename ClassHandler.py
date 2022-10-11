@@ -3,7 +3,7 @@ from typing_extensions import Self
 class TableController:
     def __init__(self: Self, classInstance: type, table_name: str, variables: dict):
         self.table_name: str = table_name
-        self.variables = variables
+        self.variables: dict = variables
         self.class_instance = classInstance
         self.createTable()
         #gunanya untuk Alter Table, Delete, Select, Dll
@@ -40,11 +40,9 @@ def variable(type: str, default_value = None, prop: dict = {}):
 class Table:
     def __init__(self, class_name: str):
         self.class_name = self.__class__.__name__
-        pass
 
     def persist(self) -> bool:
         query = f'INSERT INTO {self.class_name}(...) SET(...)'
-        pass
 
     def delete(self) -> bool:
         query = f'DELETE FROM {self.class_name} WHERE 1'

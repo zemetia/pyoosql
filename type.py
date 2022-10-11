@@ -61,3 +61,4 @@ class Type:
 
     def BOOLEAN():
         return f"BOOLEAN"
+
